@@ -1,14 +1,10 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  type RouteObject,
-} from "react-router";
-import { Home } from "./Home/Home";
-import { Detail } from "./Detail/Detail";
+import { createBrowserRouter, RouterProvider, type RouteObject } from 'react-router';
+import { Home } from './Home/Home';
+import { Detail } from './Detail/Detail';
 
 const webPath = {
-  home: () => "/",
-  detail: () => "/detail/:id",
+  home: () => '/',
+  detail: () => '/products/:id',
 };
 
 const routeConfig: RouteObject[] = [
