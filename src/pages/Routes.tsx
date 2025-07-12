@@ -28,6 +28,8 @@ const routeConfig: RouteObject[] = [
   },
 ];
 
-const router = createBrowserRouter(routeConfig);
+const router = createBrowserRouter(routeConfig, {
+  basename: import.meta.env.BASE_URL,
+});
 
 export const Routes = () => <RouterProvider router={router} />;
