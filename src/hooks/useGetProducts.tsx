@@ -1,8 +1,7 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
-import { API_URL } from "../constants";
-import { PRODUCTS_QUERY_KEY } from "../constants/queryKeys";
-import { http } from "../utils/http";
-import type { Product } from "./useGetProduct";
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { PRODUCTS_QUERY_KEY } from '../constants/queryKeys';
+import { http } from '../utils/http';
+import type { Product } from './useGetProductDetail';
 
 interface ProductsParams {
   limit?: number;
@@ -16,10 +15,8 @@ export interface ProductsResponse {
   limit: number;
 }
 
-const getProducts = async (
-  request: ProductsParams
-): Promise<ProductsResponse> => {
-  const response = await http.get<ProductsResponse>(`${API_URL}/products`, {
+const getProducts = async (request: ProductsParams): Promise<ProductsResponse> => {
+  const response = await http.get<ProductsResponse>('/products', {
     params: request,
   });
 

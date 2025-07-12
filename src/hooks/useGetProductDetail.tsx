@@ -1,6 +1,6 @@
-import { useSuspenseQuery } from "@tanstack/react-query";
-import { PRODUCTS_QUERY_KEY } from "../constants/queryKeys";
-import { http } from "../utils/http";
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { PRODUCTS_QUERY_KEY } from '../constants/queryKeys';
+import { http } from '../utils/http';
 
 export interface Product {
   id: number;
@@ -16,15 +16,15 @@ export interface Product {
   tags: string[];
 }
 
-const getProduct = async (id: number) => {
+const getProductDetail = async (id: number) => {
   const response = await http.get<Product>(`/products/${id}`);
 
   return response;
 };
 
-export const useGetProduct = (id: number) => {
+export const useGetProductDetail = (id: number) => {
   return useSuspenseQuery({
     queryKey: PRODUCTS_QUERY_KEY.detail([id]),
-    queryFn: () => getProduct(id),
+    queryFn: () => getProductDetail(id),
   });
 };
