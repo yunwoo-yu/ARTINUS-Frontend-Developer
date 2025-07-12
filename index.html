@@ -5,6 +5,19 @@
     <link rel="icon" type="image/svg+xml" href="/ARTINUS-Frontend-Developer/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ARTINUS 과제</title>
+    <script type="text/javascript">
+      // GitHub Pages SPA redirect hack
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
     <script type="module" crossorigin src="/ARTINUS-Frontend-Developer/assets/js/index-fKK0Ao6_.js"></script>
     <link rel="modulepreload" crossorigin href="/ARTINUS-Frontend-Developer/assets/js/vendor-Db2JmcAS.js">
     <link rel="stylesheet" crossorigin href="/ARTINUS-Frontend-Developer/assets/css/index-D6Gut-3m.css">
