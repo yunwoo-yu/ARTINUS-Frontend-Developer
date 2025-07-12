@@ -4,8 +4,8 @@ import { WEB_PATH } from '../pages/Routes';
 
 export const Header = () => {
   return (
-    <header className="w-full shadow-md">
-      <div className="max-w-5xl py-8 mx-auto">
+    <header className="w-full shadow-md ">
+      <div className="max-w-5xl py-8 mx-auto px-4">
         <h1 className="max-w-40">
           <Link to={WEB_PATH.home()} className="block">
             <span className="sr-only">Artinus 과제 </span>
