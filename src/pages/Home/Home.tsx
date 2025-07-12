@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { ProductsSection } from './components/ProductsSection';
 import { LoaderCircle } from 'lucide-react';
 
-export const Home = () => {
+const Home = () => {
   return (
     <Suspense
       fallback={
@@ -15,3 +15,5 @@ export const Home = () => {
     </Suspense>
   );
 };
+
+export default Home;

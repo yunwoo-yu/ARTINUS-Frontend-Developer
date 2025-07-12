@@ -1,3 +1,11 @@
-export const Detail = () => {
-  return <div>Detail</div>;
+import { DetailSection } from './components/DetailSection';
+
+const Detail = () => {
+  return (
+    <div>
+      <DetailSection />
+    </div>
+  );
 };
+
+export default Detail;

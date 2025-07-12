@@ -1,12 +1,14 @@
+import { lazy } from 'react';
 import { createBrowserRouter, RouterProvider, type RouteObject } from 'react-router';
-import { Home } from './Home/Home';
-import { Detail } from './Detail/Detail';
 import { PageLayout } from './PageLayout';
 
 export const WEB_PATH = {
   home: () => '/',
   detail: (id: string = ':id') => `/products/${id}`,
 };
+
+const HomePage = lazy(() => import('./Home/Home'));
+const DetailPage = lazy(() => import('./Detail/Detail'));
 
 const routeConfig: RouteObject[] = [
   {
@@ -15,12 +17,12 @@ const routeConfig: RouteObject[] = [
     children: [
       {
         path: WEB_PATH.home(),
-        element: <Home />,
+        element: <HomePage />,
         index: true,
       },
       {
         path: WEB_PATH.detail(),
-        element: <Detail />,
+        element: <DetailPage />,
       },
     ],
   },
