@@ -1,11 +1,13 @@
-import type { PropsWithChildren } from "react";
-import { Header } from "../components/Header";
+import { Outlet } from 'react-router';
+import { Header } from '../components/Header';
 
-export const PageLayout = ({ children }: PropsWithChildren) => {
+export const PageLayout = () => {
   return (
     <div className="w-full min-h-screen">
       <Header />
-      {children}
+      <main className="max-w-5xl mx-auto py-10 flex flex-col">
+        <Outlet />
+      </main>
     </div>
   );
 };

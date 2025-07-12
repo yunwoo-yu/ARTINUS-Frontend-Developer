@@ -1,33 +1,24 @@
-import Axios, { type AxiosRequestConfig } from "axios";
+import Axios, { type AxiosRequestConfig } from 'axios';
+import { API_URL } from '../constants';
 
-const axios = Axios.create();
+const axios = Axios.create({
+  baseURL: API_URL,
+});
 
 export const http = {
-  get: async function get<Response = unknown>(
-    url: string,
-    options: AxiosRequestConfig = {}
-  ) {
+  get: async function get<Response = unknown>(url: string, options: AxiosRequestConfig = {}) {
     const res = await axios.get<Response>(url, options);
     return res.data;
   },
-  post: async function post<Request = any, Response = unknown>(
-    url: string,
-    data?: Request
-  ) {
+  post: async function post<Request = any, Response = unknown>(url: string, data?: Request) {
     const res = await axios.post<Response>(url, { data });
     return res.data;
   },
-  put: async function put<Request = any, Response = unknown>(
-    url: string,
-    data?: Request
-  ) {
+  put: async function put<Request = any, Response = unknown>(url: string, data?: Request) {
     const res = await axios.put<Response>(url, { data });
     return res.data;
   },
-  delete: async function <Response = unknown>(
-    url: string,
-    options: AxiosRequestConfig = {}
-  ) {
+  delete: async function <Response = unknown>(url: string, options: AxiosRequestConfig = {}) {
     const res = await axios.delete<Response>(url, options);
     return res.data;
   },
