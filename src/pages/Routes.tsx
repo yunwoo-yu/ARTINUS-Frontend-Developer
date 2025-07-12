@@ -7,8 +7,8 @@ export const WEB_PATH = {
   detail: (id: string = ':id') => `/products/${id}`,
 };
 
-const HomePage = lazy(() => import('./Home/Home'));
-const DetailPage = lazy(() => import('./Detail/Detail'));
+const HomePage = lazy(() => import('./HomePage/HomePage'));
+const DetailPage = lazy(() => import('./DetailPage/DetailPage'));
 
 const routeConfig: RouteObject[] = [
   {
