@@ -1,69 +1,99 @@
-# React + TypeScript + Vite
+# Artinus
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+알티너스 과제 제출 (유윤우)
 
-Currently, two official plugins are available:
+## 개발환경
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Node.js**: 20+ 버전 권장
+- **Package Manager**: pnpm
+- **Framework**: React 19.1.0
+- **Build Tool**: Vite 7.0.3
+- **TypeScript**: 5.8.3
 
-## Expanding the ESLint configuration
+### 주요 기술 스택
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend**: React 19.1.0, TypeScript
+- **Routing**: React Router 7.6.3
+- **State Management**: TanStack React Query 5.81.5
+- **HTTP Client**: Axios 1.10.0
+- **UI Components**: Lucide React (아이콘)
+- **Date Handling**: Day.js 1.11.13
+- **Styling**: Tailwind CSS 4.1.11
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 개발 내용
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 주요 기능
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. **상품 목록 페이지**
+
+   - 상품 리스트 조회 및 표시
+   - 반응형 레이아웃
+   - 상품 이미지, 제목, 가격, 평점 표시
+
+2. **상품 상세 페이지**
+   - 상품 상세 정보 조회
+   - 반응형 레이아웃
+   - 사용자 리뷰 섹션
+
+### 프로젝트 구조
+
+```
+src/
+├── components/          # 공통 컴포넌트
+├── features/           # 기능별 컴포넌트
+│   ├── Detail/         # 상품 상세 관련
+│   └── Products/       # 상품 목록 관련
+├── pages/              # 페이지 컴포넌트
+│   ├── DetailPage/
+│   │   └── components/ # 상품 상세 페이지 컴포넌트
+│   ├── HomePage/
+│   │   └── components/ # 상품 목록 페이지 컴포넌트
+│   ├── PageLayout.tsx
+│   └── Routes.tsx
+├── hooks/              # 커스텀 훅
+├── utils/              # 유틸리티 함수
+└── constants/          # 상수 정의
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 빌드 및 실행방법
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 설치
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# pnpm 사용
+pnpm install
+
 ```
+
+### 개발 서버 실행
+
+```bash
+# pnpm 사용
+pnpm dev
+```
+
+개발 서버가 실행되면 `http://localhost:5173`에서 애플리케이션을 확인할 수 있습니다.
+
+### 빌드
+
+```bash
+# pnpm 사용
+pnpm build
+```
+
+빌드된 파일은 `dist/` 폴더에 생성됩니다.
+
+### 프리뷰
+
+```bash
+# pnpm 사용
+pnpm preview
+```
+
+빌드된 애플리케이션을 로컬에서 미리 볼 수 있습니다.
+
+## 개발 스크립트
+
+- `dev`: 개발 서버 실행
+- `build`: TypeScript 컴파일 후 Vite 빌드
+- `preview`: 빌드된 애플리케이션 미리보기
